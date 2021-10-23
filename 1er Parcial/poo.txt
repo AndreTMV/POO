@@ -1,0 +1,25 @@
+Estructura o maqueta para agrupar elementos del mismo tipo en la cual abstraemos sus propiedades o metodos
+Ventaja -> reutilizacion del codigo
+Objeto se crea cuando se le da valores antes solo esta definido
+Un programa es para solucionar problemas
+Un objeto se instancia de la clase
+Un objeto es creado cuando se le pasa valores y trabaja con metodos eventos y mensajes
+Actuan por mensajes
+Ventajas:
+Reusabilidad
+Mantenibilidad
+Modificabilidad
+Fiabilidad
+No hay limites para crear los metodos o propiedades de las clases
+
+Objeto es una unidad  dentro de un programa de computadoras que consta de un estado y de un comportamiento
+consta de datos almacenados y de tareas y realizables
+Objeto se crea instanciando una clase
+
+Clase:
+nombre, metodos y atributos
+
+Abstaccion
+entrevista y levantamiento de requerimientos
+Primer elemento del modelado de objetos
+Obtener toda la informacion de los objetos que voy a programar
