@@ -12,10 +12,10 @@ int main() {
     unsigned int constantes = 0;
     char *cadena = new char[100];
     char *p;
-    cout << "--------------------------------------------------" << endl;
-    cout << "Estas son las opciones" << endl;
-    cout << "Convierte A a 1(A)\n Cuenta consonantes(B) \n Salir(S)" << endl;
-    cout << "--------------------------------------------------" << endl;
+    cout << "_______Menu___________" << endl;
+    /* cout << "Estas son las opciones" << endl; */
+    cout << "Convierte A a 1(A)\nCuenta consonantes(B) \nSalir(S)" << endl;
+    cout << "____________ " << endl;
     cout << "Ingresa tu opcion:";
     cin >> opcion;
     if (opcion == 's' || opcion == 'S')
@@ -57,4 +57,5 @@ int main() {
     }
     delete[] cadena;
   }
+  cout << "Bonito día" << endl;
 }
