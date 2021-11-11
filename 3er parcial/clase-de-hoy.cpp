@@ -1,3 +1,6 @@
+//realizar un programa en c++ que contenga constructores, destructores, herencia simple, objetos y clases
+//que evalue el siguiente menu:
+// caso a, crear y mostrar un objeto de la clase articulo que contendra descripcion, y costo(clase base)
 #include <cstring>
 #include <iostream>
 using namespace std;
