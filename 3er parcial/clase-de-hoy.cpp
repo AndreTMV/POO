@@ -4,8 +4,8 @@
 #include <cstring>
 #include <iostream>
 using namespace std;
-int edad, registro;
-char nombre[40];
+int edad, registro, nomina;
+char nombre[40], puesto[40];
 
 void leer(int ban)
 {
@@ -13,6 +13,14 @@ void leer(int ban)
     {
         cout << "Registro: ";
         cin >> registro;
+    }
+    else if (ban == 1)
+    {
+        cout << "Nomina: ";
+        cin >> nomina;
+        cout << "Puesto: ";
+        cin.get();
+        cin.get(puesto, 40);
     }
     else
     {
@@ -33,7 +41,7 @@ public:
     void Muestra();
 };
 
-class estudiante : public Persona
+class estudiante
 {
 public:
     int Registro;
@@ -41,6 +49,26 @@ public:
     ~estudiante();
     void Muestra();
 };
+class profesor : public Persona, public estudiante
+{
+public:
+    int nomina;
+    char puesto[40];
+    profesor(char *, int, int, char *, int);
+    void imprimirProfesor();
+    ~profesor();
+};
+
+profesor::profesor(char *Nombre, int Edad, int Registro, char *puesto, int nomina) : Persona(Nombre, Edad), estudiante(Registro, Edad, Nombre)
+{
+    strcpy(profesor::puesto, puesto);
+    this->nomina = nomina;
+}
+
+profesor::~profesor()
+{
+    cout << "Destruyendo objeto en profesor" << endl;
+}
 
 Persona::Persona(char *Nombre, int Edad)
 {
@@ -56,29 +84,35 @@ void Persona::Muestra()
     cout << "Nombre: " << Nombre << endl;
     cout << "Edad: " << Edad << endl;
 }
-estudiante::estudiante(int Registro, int Edad, char *Nombre) : Persona(Nombre, Edad)
+
+estudiante::estudiante(int Registro, int Edad, char *Nombre)
 {
     this->Registro = registro;
 }
+
 estudiante::~estudiante()
 {
     cout << "Borrando el objeto" << endl;
 }
+
 void estudiante::Muestra()
 {
-    cout << "Nombre: " << Nombre << endl;
-    cout << "Edad: " << Edad << endl;
     cout << "Registro: " << Registro << endl;
+}
+void profesor::imprimirProfesor()
+{
+    cout << "Nomina: " << nomina << endl;
+    cout << "Puesto: " << puesto << endl;
 }
 int main(int argc, char const *argv[])
 {
     int opcion = 0;
-    while (opcion != 3)
+    while (opcion != 4)
     {
         std::cout << "--------------------------------------------------"
                   << std::endl;
         cout << "Opciones:\nCrear objeto de persona(1)\nCrear objeto de estudiante(2) "
-                "\nSalir(3)"
+                "\nCrear objeto de profesor(3)\nSalir(4)"
              << endl;
         std::cout << "Su opcion: ";
         cin >> opcion;
@@ -89,7 +123,7 @@ int main(int argc, char const *argv[])
         case 1:
         {
             cout << "Creando objeto de persona" << endl;
-            leer(1);
+            leer(3);
             Persona obj1(nombre, edad);
             cout << "Mostrando valores" << endl;
             obj1.Muestra();
@@ -105,6 +139,15 @@ int main(int argc, char const *argv[])
             break;
         }
         case 3:
+        {
+            cout << "Creando objeto de profesor" << endl;
+            leer(1);
+            profesor obj1(nombre, edad, registro, puesto, nomina);
+            cout << "Mostrando valores" << endl;
+            obj1.imprimirProfesor();
+            break;
+        }
+        case 4:
             cout << "Que tenga bonito día" << endl;
             break;
         default:
@@ -112,6 +155,5 @@ int main(int argc, char const *argv[])
             break;
         }
     }
-
     return 0;
 }
